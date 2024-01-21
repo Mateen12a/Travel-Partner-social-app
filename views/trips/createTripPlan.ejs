@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	
+
+	<title>Create Trip - Plan Trip</title>
+	<link rel="stylesheet" type="text/css" href="/css/landingPage.css">
+</head>
+<body>
+<a href="/">Home</a>
+	<h1>Trip Plan</h1>
+
+	<div class="signIn">
+		<form action="/trips/tripHomePage/" method="POST">
+			<label>Destination</label>
+			<input type="text" name="destination">
+
+			<label>Leaving</label>
+			<input type="date" name="startDate">
+
+			<label>Returning</label>
+			<input type="date" name="returnDate">
+
+			<label>Description</label>
+			<input type="text" name="description">
+
+			<input type="hidden" name="">
+			<input type="submit" value="Submit Trip Plan">
+		</form>
+	</div>
+
+
+
+
+
+</body>
+</html>

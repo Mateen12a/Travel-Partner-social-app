@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Members Page</title>
+	<link rel="stylesheet" type="text/css" href="/css/homePage.css">
+</head>
+<body>
+
+	<h1>Add Members Page</h1>
+
+	<h4>Reminder: The user that you add must have an account with this app</h4>
+
+	<h2>
+		<%= message %>
+	</h2>
+
+	<form action="/trips/addMembers/<%= savedTrip._id %>" method="POST">
+		Username: <input type="text" name="username">
+		<input type="hidden" name="tripId" value="<%=savedTrip._id%>">
+		<input type="submit" name="submit" value="Add Member">
+	</form>
+
+</body>
+</html>

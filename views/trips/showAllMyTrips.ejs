@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Your Trips</title>
+	<link rel="stylesheet" type="text/css" href="/css/homePage.css">
+	<style>
+		#allTrips {
+width: 50%; /* set the width to half of its parent */
+padding-top: 20px; /* add some space between the top edge and the content */
+border: solid black 1px; /* draw a thin solid line around the element */
+margin: auto; /* center horizontally (not vertically) */
+}
+#newtrip {
+width: 50%; /* set the width to half of its parent */
+padding-top: 20px; /* draw a thin solid line around the element */
+margin: auto; /* center horizontally (not vertically) */
+font-size: larger;
+}
+
+	</style>
+</head>
+
+<body>
+	<a href="/">Home</a>
+	<h1>These are your saved trips</h1>
+<div id="newtrip"><a href="/trips/createTripPlan">Create New Trip</a></div>
+	<ul>
+		<% for (let i = 0; i < foundTrips.length; i++) { -%>
+			<div id="allTrips"> Trip to <a href="/trips/tripHomePage/<%=foundTrips[i]._id%>"><%= foundTrips[i].destination %></a>
+			<a href="/profile"><%=foundUser%></a>
+			<p><%= foundTrips[i].description %></p>
+			<a href="/trips/tripHomePage/<%=foundTrips[i]._id%>">More Details...</a>
+		</div>
+		<% } -%>
+	</ul>
+	
+
+</body>
+</html>

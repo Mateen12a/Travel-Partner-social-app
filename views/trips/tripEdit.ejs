@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Trip Page</title>
+	<link rel="stylesheet" type="text/css" href="/css/homePage.css">
+</head>
+<body>
+	<h1>Edit Your Trip!</h1>
+	<form method="POST" action="/trips/tripHomePage">
+		Destination
+		<input type="text" name="destination" value="<%=trip.destination%>"><br>	
+		Departure
+		<input type="date" name="startDate" value="<%=trip.startDate%>"><br>	
+		Return
+		<input type="date" name="returnDate" value="<%=trip.returnDate%>"><br>
+		Description
+		<input type="text" name="description" value="<%=trip.description%>">	
+
+		<br>
+		<input type="submit" name="submit" value="submit changes">
+	</form>
+
+	<form method='POST' action='/trips/<%=trip._id%>?_method=DELETE'>
+		<button type='submit'>Delete</button>
+	</form>
+</body>
+</html>

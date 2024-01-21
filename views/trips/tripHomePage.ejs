@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Trip Page</title>
+	<link rel="stylesheet" type="text/css" href="/css/createTrip.css">
+</head>
+<body>
+	<a href="/">Home</a>
+	<a href="/logout">Logout</a>
+
+	<header>
+
+		<h1><%=savedTrip.destination%></h1> 
+		<h2>~ <%=savedTrip.description%> ~</h2>
+
+		<h3>Start Date: <%=savedTrip.startDate%></h3>
+		<h3>Return Date: <%=savedTrip.returnDate%></h3>
+
+		<a href="/trips/<%=savedTrip._id%>/tripEdit">Edit this trip</a>
+
+	</header>
+
+
+	<section class="lists-container">
+
+	<div class="list">
+
+		<h3 class="list-title">Members</h3>
+
+		<ul class="list-items">
+			<% for (let i = 0; i < savedTrip.members.length; i++) { -%>
+				<li>
+					<p><%= savedTrip.members[i].username %></p>
+				</li>
+				<form action="/trips/member/<%=savedTrip.members[i]._id%>/<%= savedTrip._id %>?_method=DELETE" method="POST">
+                    <button type='Submit'>Delete</button>
+                </form>
+			<% } -%>
+		</ul>
+
+		<button class="add-card-btn btn"><a href="/trips/addMembers/">Add Member</a></button>
+
+	</div>
+
+	<div class="list">
+
+		<h3 class="list-title">To Do</h3>
+
+		<ul class="list-items">
+			<% for (let i = 0; i < savedTrip.itemsToPlan.length; i++) { -%>
+				<li>
+					<a href="/tripItems/<%=savedTrip.itemsToPlan[i]._id%>/tripItemEdit"><%=savedTrip.itemsToPlan[i].description%></a>
+					
+					</li>
+				<% } -%>
+		</ul>
+
+		<button class="add-card-btn btn"><a href="/trips/createList">Add Item</a></button>
+
+	</div>
+
+	<div class="list">
+
+		<h3 class="list-title">Itenerary</h3>
+
+		<ul class="list-items">
+			<% for (let i = 0; i < savedTrip.plannedItems.length; i++) { -%>
+				<li>
+					<a href="/tripItems/<%=savedTrip.plannedItems[i]._id %>/tripItemEdit"><%=savedTrip.plannedItems[i].description%></a>
+				</li>
+
+			<% } -%>
+		</ul>
+
+		<button class="add-card-btn btn"><a href="/trips/createList">Add Item</a></button>
+
+	</div>
+
+	<div class="list">
+
+		<h3 class="list-title">Ideas</h3>
+
+		<ul class="list-items">
+			<% for (let i = 0; i < savedTrip.suggestedItems.length; i++) { -%>
+				<li>
+					<a href="/tripItems/<%=savedTrip.suggestedItems[i]._id %>/tripItemEdit"><%=savedTrip.suggestedItems[i].description%></a>
+				</li>
+
+			<% } -%>
+		</ul>
+
+		<button class="add-card-btn btn"><a href="/trips/createList">Add Item</a></button>
+
+	</div>
+
+</section>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

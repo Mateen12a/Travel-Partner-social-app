@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trip Item Edit Page</title>
+	<link rel="stylesheet" type="text/css" href="/css/homePage.css">
+</head>
+<body>
+
+	<h1>Trip Item Edit Page</h1>
+ 
+	<form method="POST" action="/tripItems/<%=foundItem._id%>?_method=PUT">
+		Description
+		<textarea type="text" name="description" value="<%=foundItem.description%>"></textarea>
+ 		<input type="submit" name="" value='submit changes'>
+	</form>
+
+	<form method='POST' action='/tripItems/<%=foundItem._id%>?_method=DELETE'>
+		<button type='submit'>Delete</button>
+	</form>
+
+</body>
+</html>
